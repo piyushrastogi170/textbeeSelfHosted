@@ -134,11 +134,8 @@ export default function AppHeader({
             className='h-6 w-6 rounded-full bg-white'
           />
           <span className='font-semibold tracking-tight'>
-            text<span className='text-primary'>bee</span>
-            <span className='align-center text-xs text-muted-foreground'>
-              .dev
-            </span>
-          </span>
+  Josmith <span className='text-primary'>SMS</span>
+</span>
         </Link>
 
         <div className='flex flex-1 items-center justify-end gap-2'>
