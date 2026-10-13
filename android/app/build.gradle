@@ -58,12 +58,12 @@ android {
         }
         
         prod {
-            dimension "environment"
-            applicationId "com.vernu.sms"
-            buildConfigField "String", "API_BASE_URL", '"https://textbeeselfhosted.onrender.com/api/v1/"'
-            buildConfigField "String", "ENVIRONMENT", '"production"'
-            resValue "string", "app_name", "textbee.dev"
-        }
+    dimension "environment"
+    applicationId "com.vernu.sms"
+    buildConfigField "String", "API_BASE_URL", '"https://textbeeselfhosted.onrender.com/api/v1/"'
+    buildConfigField "String", "ENVIRONMENT", '"production"'
+    resValue "string", "app_name", "Josmith SMS"
+}
     }
 
     compileOptions {
