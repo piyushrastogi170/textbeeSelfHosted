@@ -1,0 +1,44 @@
+name: Build TextBee APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Create google-services.json from Secret
+        env:
+          GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES_JSON_PROD }}
+        run: |
+          mkdir -p android/app/src/prod
+          printf '%s' "$GOOGLE_SERVICES" > android/app/src/prod/google-services.json
+          cp android/app/src/prod/google-services.json android/app/google-services.json
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x android/gradlew
+
+      - name: Build APK
+        run: |
+          cd android
+          ./gradlew assembleProdDebug
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TextBee-App
+          path: android/app/build/outputs/apk/prod/debug/*.apk
+          
