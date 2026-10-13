@@ -53,7 +53,8 @@ export class SmsQueueService {
    * Check if queue is enabled based on environment variable
    */
   isQueueEnabled(): boolean {
-    return this.useSmsQueue
+    const val: any = this.useSmsQueue
+    return val === true || val === 'true'
   }
 
   // If delayMs is provided, use it as the base for all waves (scheduled send)
