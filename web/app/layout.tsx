@@ -19,11 +19,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'textbee.dev - sms gateway - dashboard',
-
-  metadataBase: new URL('https://textbee.dev'),
+  title: 'Josmith SMS - Gateway Dashboard',
+  metadataBase: new URL('https://josmithservices.com'),
 }
-
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang='en' suppressHydrationWarning className={`${inter.variable} ${geistMono.variable}`}>
