@@ -4,7 +4,7 @@
 // is runnable after pasting one API key. The previous guide always printed
 // YOUR_DEVICE_ID, which meant nothing on the page could be run as-is.
 
-export const API_BASE_URL = 'https://api.textbee.dev/api/v1'
+export const API_BASE_URL = 'https://textbeeselfhosted.onrender.com/api/v1'
 
 export type LanguageId = 'curl' | 'node' | 'python' | 'php' | 'go' | 'sdk'
 
